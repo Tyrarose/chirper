@@ -7,7 +7,7 @@
             @if($chirp->user)
                 <div class="avatar">
                     <div class="size-10 rounded-full">
-                        <img src="<https://avatars.laravel.cloud/taylor@laravel.com>{{ urlencode($chirp->user->email) }}"
+                        <img src="<https://avatars.laravel.cloud/taylor@laravel.com>{{ urlencode($chirp->user->email) }}?vibe=ocean"
                              alt="{{ $chirp->user->name }}'s avatar"
                              class="rounded-full" />
                     </div>
@@ -38,9 +38,11 @@
                     @can('update', $chirp)
                         <div class="flex gap-1">
                             <a href="/chirps/{{ $chirp->id }}/edit" class="btn btn-ghost btn-xs"> Edit </a>
-                            <form method="POST" action="/chirps/{{ $chirp->id }}"> @csrf @method('DELETE') <button
+                            <form method="POST" action="/chirps/{{ $chirp->id }}"> @csrf @method('DELETE')
+                                <button
                                     type="submit" onclick="return confirm('Are you sure you want to delete this chirp?')"
-                                    class="btn btn-ghost btn-xs text-error"> Delete </button>
+                                    class="btn btn-ghost btn-xs text-error">
+                                Delete </button>
                             </form>
                         </div>
                     @endcan
